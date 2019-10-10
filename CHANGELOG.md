@@ -11,5 +11,5 @@
 ### Removed
 
 ### Fixed
-
+-Logout
 ### Security

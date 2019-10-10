@@ -100,6 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   onPressed: () {
                     final AuthBloc authBloc =
                         BlocProvider.of<AuthBloc>(context);
+                        print(email);
                     authBloc.dispatch(Login(email: email, password: password));
                   },
                   color: Colors.teal,
