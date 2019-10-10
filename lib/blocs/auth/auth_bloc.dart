@@ -30,7 +30,6 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
             sendTokenRequest(event.email, event.password);
 
         await saveTokenAndUser(response);
-
         final User user = User(
           name: responseBody['user']['name'],
           username: responseBody['user']['username'],
@@ -49,6 +48,13 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
         client.close();
       }
     }
+
+    if (event is LoggedOut) {
+      yield UserLoading();
+      await storage.deleteAll();
+      yield UserNotFound();
+    }
+
   }
 
   Future<http.Response> sendTokenRequest(String email, String password) async {

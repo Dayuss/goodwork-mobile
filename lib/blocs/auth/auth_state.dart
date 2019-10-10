@@ -15,6 +15,14 @@ class UserLoading extends AuthState {
   List<Object> get props => [];
 }
 
+class AuthenticationUnauthenticated extends AuthState {
+  @override
+  String toString() => 'AuthenticationAuthenticated';
+  @override
+  List<Object> get props => [];
+}
+
+
 class UserNotFound extends AuthState {
   @override
   List<Object> get props => [];
